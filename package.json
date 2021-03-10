@@ -1,5 +1,5 @@
 {
-  "name": "my_react",
+  "name": "sdk_l2_demo_page",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@stablepay/sdk_l2": "0.0.32",
+    "ethers": "^5.0.32",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "util": "^0.12.3"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
