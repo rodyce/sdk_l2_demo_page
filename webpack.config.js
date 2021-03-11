@@ -24,6 +24,11 @@ module.exports = {
         },
       },
       {
+        test: /\.js$/,
+        enforce: "pre",
+        use: ["source-map-loader"],
+      },
+      {
         test: /\.tsx?$/,
         use: [
           {
@@ -53,4 +58,5 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
+  devtool: "source-map",
 };
