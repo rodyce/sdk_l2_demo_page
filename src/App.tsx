@@ -34,14 +34,10 @@ const App = () => {
   const [l2Provider, setL2Provider] = useState<Layer2Provider>();
   const [l2Wallet, setL2Wallet] = useState<Layer2Wallet>();
   const [walletAddress, setWalletAddress] = useState("");
-  const [
-    ethersProvider,
-    setEthersProvider,
-  ] = useState<ethers.providers.Web3Provider>();
-  const [
-    ethersSigner,
-    setEthersSigner,
-  ] = useState<ethers.providers.JsonRpcSigner>();
+  const [ethersProvider, setEthersProvider] =
+    useState<ethers.providers.Web3Provider>();
+  const [ethersSigner, setEthersSigner] =
+    useState<ethers.providers.JsonRpcSigner>();
   const [workingToken, setWorkingToken] = useState(DEFAULT_TOKEN);
 
   useEffect(() => {
@@ -181,6 +177,7 @@ const App = () => {
         <label>TOKEN</label>
         <select value={workingToken} onChange={handleWorkingToken}>
           <option value="ETH">ETH</option>
+          <option value="DAI">DAI</option>
           <option value="BAT">BAT</option>
         </select>
       </div>

@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -12,7 +13,16 @@ module.exports = {
       react: path.join(__dirname, "node_modules", "react"),
       util: require.resolve("util/"),
     },
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".json"],
+    fallback: {
+      buffer: require.resolve("buffer"),
+      crypto: require.resolve("crypto-browserify"),
+      http: require.resolve("stream-http"),
+      https: require.resolve("https-browserify"),
+      os: require.resolve("os-browserify/browser"),
+      process: require.resolve("process/browser"),
+      stream: require.resolve("stream-browserify"),
+    },
   },
   module: {
     rules: [
@@ -56,6 +66,10 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
+    }),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+      Buffer: ["buffer", "Buffer"],
     }),
   ],
   devtool: "source-map",
